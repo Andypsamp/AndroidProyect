@@ -1,5 +1,7 @@
 package com.example.andy.examen5795;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -50,7 +52,7 @@ public class ItemDetailFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
+        final View rootView = inflater.inflate(R.layout.fragment_item_detail, container, false);
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
@@ -58,10 +60,15 @@ public class ItemDetailFragment extends Fragment {
 
             Button boton=(Button)rootView.findViewById(R.id.boton);
             boton.setOnClickListener(new View.OnClickListener(){//onListener Creado e implementa el metodo onCLick por defecto.
-
+//creado por defecto
+                @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
                 @Override
                 public void onClick(View v) {
                     borrar();
+                    //si esta en vertical se cerrara
+                    if (rootView==null||rootView.isInLayout()){
+                        getActivity().finish();
+                    }
                 }
             }
             );   }
