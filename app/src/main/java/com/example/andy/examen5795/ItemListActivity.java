@@ -73,7 +73,7 @@ public class ItemListActivity extends FragmentActivity
 
             if(getResources().getBoolean(R.bool.DualPanel)){
                 //Aki creamos el toast q nos saldra cuando estemos en modo land
-                Toast t=Toast.makeText(getApplicationContext(),"Modo land",Toast.LENGTH_SHORT);
+                Toast t=Toast.makeText(getApplicationContext(),"Tumbado",Toast.LENGTH_SHORT);
                 t.show();//aki es para q nos los muestre
             }
 

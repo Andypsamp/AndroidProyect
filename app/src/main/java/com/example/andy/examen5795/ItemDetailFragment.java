@@ -1,6 +1,7 @@
 package com.example.andy.examen5795;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,6 +30,7 @@ public class ItemDetailFragment extends Fragment {
      * The dummy content this fragment is presenting.
      */
     private DummyContent.DummyItem mItem;
+    private onItemSelectedListener listener;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -73,11 +75,22 @@ public class ItemDetailFragment extends Fragment {
             }
             );   }
 
+        listener.send("OK");
         return rootView;
     }
     //Este metodo borrara el contenido del textview
     public void borrar(){
         TextView tv=(TextView)getView().findViewById(R.id.item_detail);
         tv.setText("");//para q nos limpie el boton
+    }
+    public interface onItemSelectedListener{
+        public void send(String mensaje);
+    }
+    public void onAttach(Activity context){
+        super.onAttach(context);
+
+        if(context instanceof onItemSelectedListener){
+            listener=(onItemSelectedListener)context;
+        }
     }
 }
