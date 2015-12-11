@@ -3,6 +3,7 @@ package com.example.andy.examen5795;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 
 /**
@@ -69,6 +70,12 @@ public class ItemListActivity extends FragmentActivity
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.item_detail_container, fragment)
                     .commit();
+
+            if(getResources().getBoolean(R.bool.DualPanel)){
+                //Aki creamos el toast q nos saldra cuando estemos en modo land
+                Toast t=Toast.makeText(getApplicationContext(),"Modo land",Toast.LENGTH_SHORT);
+                t.show();//aki es para q nos los muestre
+            }
 
         } else {
             // In single-pane mode, simply start the detail activity
