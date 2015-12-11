@@ -57,8 +57,20 @@ public class ItemDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.content);
 
             Button boton=(Button)rootView.findViewById(R.id.boton);
-        }
+            boton.setOnClickListener(new View.OnClickListener(){//onListener Creado e implementa el metodo onCLick por defecto.
+
+                @Override
+                public void onClick(View v) {
+                    borrar();
+                }
+            }
+            );   }
 
         return rootView;
+    }
+    //Este metodo borrara el contenido del textview
+    public void borrar(){
+        TextView tv=(TextView)getView().findViewById(R.id.item_detail);
+        tv.setText("");//para q nos limpie el boton
     }
 }
