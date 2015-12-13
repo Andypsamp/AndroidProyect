@@ -23,7 +23,7 @@ import android.widget.Toast;
  * to listen for item selections.
  */
 public class ItemListActivity extends FragmentActivity
-        implements ItemListFragment.Callbacks {
+        implements ItemListFragment.Callbacks,ItemDetailFragment.onItemSelectedListener {
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -84,5 +84,10 @@ public class ItemListActivity extends FragmentActivity
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
             startActivity(detailIntent);
         }
+
+    }
+    public void send(String mensaje){
+        Toast toast=Toast.makeText(getApplicationContext(),"Activity Cerrada",Toast.LENGTH_SHORT);
+        toast.show();
     }
 }

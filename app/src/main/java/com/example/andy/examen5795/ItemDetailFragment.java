@@ -70,6 +70,7 @@ public class ItemDetailFragment extends Fragment {
                     //si esta en vertical se cerrara
                     if (rootView==null||rootView.isInLayout()){
                         getActivity().finish();
+
                     }
                 }
             }
